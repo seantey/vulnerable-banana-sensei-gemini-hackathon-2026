@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./backend-engine
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+      - .env.secret
+    volumes:
+      - ./backend-engine/src:/app/src:ro
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend-ui/src:/app/src:ro
+      - ./frontend-ui/public:/app/public:ro
+    depends_on:
+      backend:
+        condition: service_healthy

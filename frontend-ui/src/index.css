@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Sensei theme colors */
+  --color-cream: #faf8f5;
+  --color-ink: #2d2a26;
+  --color-bamboo: #7a9e7e;
+  --color-temple-red: #c45c48;
+  --color-gold: #d4a853;
+  --color-mist: #e8e4df;
+  --color-mountain: #9ca8b3;
+
+  font-family: 'Noto Sans', 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #faf8f5;
+  background-image:
+    /* Subtle gradient at bottom for mountain effect */
+    linear-gradient(180deg,
+      #faf8f5 0%,
+      #faf8f5 70%,
+      #f0ebe6 85%,
+      #e8e4df 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Ink brush style headings */
+.brush-text {
+  font-family: 'Noto Serif', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Scroll/paper card style */
+.paper-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fdfcfb 100%);
+  border: 1px solid #e8e4df;
+  box-shadow:
+    0 4px 6px -1px rgba(45, 42, 38, 0.05),
+    0 2px 4px -1px rgba(45, 42, 38, 0.03);
+}
+
+/* Temple red accent */
+.temple-accent {
+  color: #c45c48;
+}
+
+/* Bamboo green accent */
+.bamboo-accent {
+  color: #7a9e7e;
+}
+
+/* Gold/wisdom accent */
+.gold-accent {
+  color: #d4a853;
+}
+
+/* Temple red button */
+.temple-button {
+  background: linear-gradient(135deg, #c45c48 0%, #b54d3a 100%);
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.temple-button:hover {
+  background: linear-gradient(135deg, #d46a58 0%, #c45c48 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(196, 92, 72, 0.3);
+}
+
+/* Decorative divider */
+.ink-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2d2a26, transparent);
+  opacity: 0.15;
+}
+
+/* Loading spinner in theme colors */
+.sensei-spinner {
+  border-color: #e8e4df;
+  border-top-color: #c45c48;
+}
